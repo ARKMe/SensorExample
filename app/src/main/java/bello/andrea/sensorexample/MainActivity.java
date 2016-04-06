@@ -18,12 +18,8 @@ public class MainActivity extends Activity implements SensorEventListener {
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
-        requestWindowFeature(Window.FEATURE_NO_TITLE);
-        getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
-
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
         sensorManager = (SensorManager) getSystemService(SENSOR_SERVICE);
     }
 
@@ -31,10 +27,7 @@ public class MainActivity extends Activity implements SensorEventListener {
     public void onSensorChanged(SensorEvent event) {
         if (event.sensor.getType() == Sensor.TYPE_ACCELEROMETER) {
             getAccelerometer(event);
-        } else {
-            Log.i("TYPE", String.valueOf(event.sensor.getType()));
-        }
-
+        } 
     }
 
     private void getAccelerometer(SensorEvent event) {
